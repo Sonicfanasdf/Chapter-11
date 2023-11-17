@@ -1,8 +1,13 @@
 #include<iostream>
 #include<string>
 #include"input.h"
-#include"minHeap.h"
+#include"minHeap.cpp"
+#include"MaxHeap.cpp"
 using namespace std;
+
+void Option1();
+void Max_Heap();
+void Min_Heap();
 
 int main()
 {
@@ -27,8 +32,8 @@ int main()
 		break;
 		case 1:
 		{
-			min.push(3);
-			min.heapSize();
+            system("cls");
+            Option1();
 		}
 		break;
 		case 2:
@@ -45,4 +50,222 @@ int main()
 	} while (true);
 	
 	return 0;
+}
+
+void Option1()
+{
+    do
+    {
+        system("cls");
+        cout << "\n\t\t1> Heap using vector";
+        cout << "\n\t\t" + string(70, char(205));
+        cout << "\n\t\t\tA> Min heap";
+        cout << "\n\t\t\tB> Max heap";
+
+        cout << "\n\t\t" + string(70, char(196));
+        cout << "\n\t\t\t0> return";
+        cout << "\n\t\t" + string(70, char(205));
+
+        switch (toupper(inputChar("\n\t\t\tOption: ", static_cast<string>("AB0"))))
+        {
+        case '0': return;
+        case 'A': system("cls"); Min_Heap(); break;
+        case 'B': system("cls"); Max_Heap(); break;
+        default: cout << "\t\t\tERROR - Invalid option."; break;
+        }
+        cout << "\n";
+        system("pause");
+    } while (true);
+}
+
+//Precondition: NA
+//Postcondition: Display Option Max Heap Option
+void Max_Heap()
+{
+    MaxHeap<int> heap;
+
+    do
+    {
+        system("cls");
+        cout << "\n\t\tB> Max Heap";
+        cout << "\n\t\t" + string(70, char(205));
+        cout << "\n\t\t\t1. size";
+        cout << "\n\t\t\t2. empty";
+        cout << "\n\t\t\t3. push";
+        cout << "\n\t\t\t4. front";
+        cout << "\n\t\t\t5. pop";
+        cout << "\n\t\t\t6. display";
+
+        cout << "\n\t\t" + string(70, char(196));
+        cout << "\n\t\t\t0> return";
+        cout << "\n\t\t" + string(70, char(205));
+
+        switch (inputInteger("\n\t\t\tOption: ", 0, 6))
+        {
+        case 0: return;
+        case 1:
+        {
+            cout << "\n\t\t\tSize of the heap: " << heap.getSize() << "\n";
+        }
+        break;
+
+        case 2:
+        {
+            if (heap.checkEmpty())
+            {
+                cout << "\n\t\t\tThe heap is empty.\n";
+            }
+            else
+            {
+                cout << "\n\t\t\tThe heap is not empty.\n";
+            }
+        }
+        break;
+
+        case 3:
+        {
+            heap.pushHeap(inputInteger("\n\t\t\tEnter an integer element to push onto the heap: "));
+        }
+        break;
+
+        case 4:
+        {
+            if (heap.checkEmpty())
+            {
+                cout << "\n\t\t\tThe heap is empty.\n";
+            }
+            else
+            {
+                cout << "\n\t\t\tThe first element of the heap: " << heap.getFront() << "\n";
+            }
+        }
+        break;
+
+        case 5:
+        {
+            if (heap.checkEmpty())
+            {
+                cout << "\n\t\t\tThe heap is empty.\n";
+            }
+            else
+            {
+                cout << "\n\t\t\tThe first element of the heap has been removed: " << heap.getFront() << "\n";
+                heap.popHeap();
+            }
+        }
+        break;
+
+        case 6:
+        {
+            if (heap.checkEmpty())
+            {
+                cout << "\n\t\t\tThe heap is empty.\n";
+            }
+            else
+            {
+                heap.display();
+            }
+        }
+        break;
+
+        default: cout << "\t\t\tERROR - Invalid option."; break;
+        }
+        cout << "\n";
+        system("pause");
+    } while (true);
+}
+
+void Min_Heap()
+{
+    minHeap<int> heap;
+
+    do
+    {
+        system("cls");
+        cout << "\n\t\tA> Min Heap";
+        cout << "\n\t\t" + string(70, char(205));
+        cout << "\n\t\t\t1. size";
+        cout << "\n\t\t\t2. empty";
+        cout << "\n\t\t\t3. push";
+        cout << "\n\t\t\t4. front";
+        cout << "\n\t\t\t5. pop";
+        cout << "\n\t\t\t6. display";
+
+        cout << "\n\t\t" + string(70, char(196));
+        cout << "\n\t\t\t0> return";
+        cout << "\n\t\t" + string(70, char(205));
+
+        switch (inputInteger("\n\t\t\tOption: ", 0, 6))
+        {
+        case 0: return;
+        case 1:
+        {
+            cout << "\n\t\t\tSize of the heap: " << heap.size() << "\n";
+        }
+        break;
+
+        case 2:
+        {
+            if (heap.empty())
+            {
+                cout << "\n\t\t\tThe heap is empty.\n";
+            }
+            else
+            {
+                cout << "\n\t\t\tThe heap is not empty.\n";
+            }
+        }
+        break;
+
+        case 3:
+        {
+            heap.push(inputInteger("\n\t\t\tEnter an integer element to push onto the heap: "));
+        }
+        break;
+
+        case 4:
+        {
+            if (heap.empty())
+            {
+                cout << "\n\t\t\tThe heap is empty.\n";
+            }
+            else
+            {
+                cout << "\n\t\t\tThe first element of the heap: " << heap.front() << "\n";
+            }
+        }
+        break;
+
+        case 5:
+        {
+            if (heap.empty())
+            {
+                cout << "\n\t\t\tThe heap is empty.\n";
+            }
+            else
+            {
+                cout << "\n\t\t\tThe first element of the heap has been removed: " << heap.front() << "\n";
+                heap.pop();
+            }
+        }
+        break;
+
+        case 6:
+        {
+            if (heap.empty())
+            {
+                cout << "\n\t\t\tThe heap is empty.\n";
+            }
+            else
+            {
+                heap.displayHeap();
+            }
+        }
+        break;
+
+        default: cout << "\t\t\tERROR - Invalid option."; break;
+        }
+        cout << "\n";
+        system("pause");
+    } while (true);
 }

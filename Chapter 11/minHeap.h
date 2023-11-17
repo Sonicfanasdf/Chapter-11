@@ -9,7 +9,11 @@ class minHeap
 private:
 	vector<Item> heap;
 public:
-	int heapSize();
-	bool isEmpty();
+	minHeap();
+	int size();
+	bool empty();
 	void push(Item entry);
+	Item front();
+	void pop();
+	void displayHeap();
 };
