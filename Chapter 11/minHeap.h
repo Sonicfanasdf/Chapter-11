@@ -10,10 +10,10 @@ private:
 	vector<Item> heap;
 public:
 	minHeap();
-	int size();
-	bool empty();
-	void push(Item entry);
-	Item front();
-	void pop();
+	int sizeHeap();
+	bool emptyHeap();
+	void pushHeap(Item entry);
+	Item frontHeap();
+	void popHeap();
 	void displayHeap();
 };

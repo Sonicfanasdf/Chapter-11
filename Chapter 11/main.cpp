@@ -200,13 +200,13 @@ void Min_Heap()
         case 0: return;
         case 1:
         {
-            cout << "\n\t\t\tSize of the heap: " << heap.size() << "\n";
+            cout << "\n\t\t\tSize of the heap: " << heap.sizeHeap() << "\n";
         }
         break;
 
         case 2:
         {
-            if (heap.empty())
+            if (heap.emptyHeap())
             {
                 cout << "\n\t\t\tThe heap is empty.\n";
             }
@@ -219,40 +219,40 @@ void Min_Heap()
 
         case 3:
         {
-            heap.push(inputInteger("\n\t\t\tEnter an integer element to push onto the heap: "));
+            heap.pushHeap(inputInteger("\n\t\t\tEnter an integer element to push onto the heap: "));
         }
         break;
 
         case 4:
         {
-            if (heap.empty())
+            if (heap.emptyHeap())
             {
                 cout << "\n\t\t\tThe heap is empty.\n";
             }
             else
             {
-                cout << "\n\t\t\tThe first element of the heap: " << heap.front() << "\n";
+                cout << "\n\t\t\tThe first element of the heap: " << heap.frontHeap() << "\n";
             }
         }
         break;
 
         case 5:
         {
-            if (heap.empty())
+            if (heap.emptyHeap())
             {
                 cout << "\n\t\t\tThe heap is empty.\n";
             }
             else
             {
-                cout << "\n\t\t\tThe first element of the heap has been removed: " << heap.front() << "\n";
-                heap.pop();
+                cout << "\n\t\t\tThe first element of the heap has been removed: " << heap.frontHeap() << "\n";
+                heap.popHeap();
             }
         }
         break;
 
         case 6:
         {
-            if (heap.empty())
+            if (heap.emptyHeap())
             {
                 cout << "\n\t\t\tThe heap is empty.\n";
             }
