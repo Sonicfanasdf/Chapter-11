@@ -32,10 +32,10 @@ Item minHeap<Item>::frontHeap()
 }
 
 template<class Item>
-void minHeap<Item>::popHeap()
+void minHeap<Item>::popMinHeap()
 {
-	pop_heap(heap.begin(), heap.end(), greater<Item>());
-
+	heap.erase(heap.begin());
+	make_heap(heap.begin(), heap.end(), greater<Item>());
 }
 
 template<class Item>

@@ -14,6 +14,6 @@ public:
 	bool emptyHeap();
 	void pushHeap(Item entry);
 	Item frontHeap();
-	void popHeap();
+	void popMinHeap();
 	void displayHeap();
 };

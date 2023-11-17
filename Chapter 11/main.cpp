@@ -177,7 +177,7 @@ void Max_Heap()
 
 void Min_Heap()
 {
-    minHeap<int> heap;
+    minHeap<int> heap2;
 
     do
     {
@@ -200,13 +200,13 @@ void Min_Heap()
         case 0: return;
         case 1:
         {
-            cout << "\n\t\t\tSize of the heap: " << heap.sizeHeap() << "\n";
+            cout << "\n\t\t\tSize of the heap: " << heap2.sizeHeap() << "\n";
         }
         break;
 
         case 2:
         {
-            if (heap.emptyHeap())
+            if (heap2.emptyHeap())
             {
                 cout << "\n\t\t\tThe heap is empty.\n";
             }
@@ -219,46 +219,46 @@ void Min_Heap()
 
         case 3:
         {
-            heap.pushHeap(inputInteger("\n\t\t\tEnter an integer element to push onto the heap: "));
+            heap2.pushHeap(inputInteger("\n\t\t\tEnter an integer element to push onto the heap: "));
         }
         break;
 
         case 4:
         {
-            if (heap.emptyHeap())
+            if (heap2.emptyHeap())
             {
                 cout << "\n\t\t\tThe heap is empty.\n";
             }
             else
             {
-                cout << "\n\t\t\tThe first element of the heap: " << heap.frontHeap() << "\n";
+                cout << "\n\t\t\tThe first element of the heap: " << heap2.frontHeap() << "\n";
             }
         }
         break;
 
         case 5:
         {
-            if (heap.emptyHeap())
+            if (heap2.emptyHeap())
             {
                 cout << "\n\t\t\tThe heap is empty.\n";
             }
             else
             {
-                cout << "\n\t\t\tThe first element of the heap has been removed: " << heap.frontHeap() << "\n";
-                heap.popHeap();
+                cout << "\n\t\t\tThe first element of the heap has been removed: " << heap2.frontHeap() << "\n";
+                heap2.popMinHeap();
             }
         }
         break;
 
         case 6:
         {
-            if (heap.emptyHeap())
+            if (heap2.emptyHeap())
             {
                 cout << "\n\t\t\tThe heap is empty.\n";
             }
             else
             {
-                heap.displayHeap();
+                heap2.displayHeap();
             }
         }
         break;
