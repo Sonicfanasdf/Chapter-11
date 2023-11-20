@@ -7,6 +7,12 @@ minHeap<Item>::minHeap()
 }
 
 template<class Item>
+minHeap<Item>::minHeap(const vector<Item>& array) : heap(array)
+{
+	make_heap(heap.begin(), heap.end(), greater<Item>());
+}
+
+template<class Item>
 int minHeap<Item>::sizeHeap()
 {
 	return heap.size();
@@ -77,3 +83,22 @@ void minHeap<Item>::displayHeap()
 	cout << endl;
 }
 
+template <class Item>
+bool minHeap<Item>::search(const Item& value)
+{
+	for (int i = 0; i < heap.size(); i++)
+	{
+		if (heap[i] == value)
+		{
+			return true;
+		}
+	}
+
+	return false;
+}
+
+template <class Item>
+bool minHeap<Item>::operator<(minHeap<Item> obj)
+{
+	return heap.size() < obj.sizeHeap();
+}

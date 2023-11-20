@@ -3,9 +3,12 @@
 #include"input.h"
 #include"minHeap.cpp"
 #include"MaxHeap.cpp"
+#include"Heap.cpp"
 using namespace std;
 
 void Option1();
+void Option2();
+void Option3();
 void Max_Heap();
 void Min_Heap();
 
@@ -38,12 +41,14 @@ int main()
 		break;
 		case 2:
 		{
-
+            system("cls");
+            Option2();
 		}
 		break;
 		case 3:
 		{
-
+            system("cls");
+            Option3();
 		}
 		break;
 		}
@@ -68,7 +73,7 @@ void Option1()
 
         switch (toupper(inputChar("\n\t\t\tOption: ", static_cast<string>("AB0"))))
         {
-        case '0': return;
+        case '0': system("cls"); return;
         case 'A': system("cls"); Min_Heap(); break;
         case 'B': system("cls"); Max_Heap(); break;
         default: cout << "\t\t\tERROR - Invalid option."; break;
@@ -268,4 +273,188 @@ void Min_Heap()
         cout << "\n";
         system("pause");
     } while (true);
+}
+
+//Precondition: NA
+//Postcondition: Display Option 2 menu
+void Option2()
+{
+
+    do
+    {
+        system("cls");
+        cout << "\n\t\t2> Union and intersect heap";
+        cout << "\n\t\t" + string(70, char(205));
+        cout << "\n\t\t\tA> Union two max Heaps";
+        cout << "\n\t\t\tB> Intersect two max Heaps";
+        cout << "\n\t\t\tC> Union two min Heaps";
+        cout << "\n\t\t\tD> Intersect two min Heaps";
+
+        cout << "\n\t\t" + string(70, char(196));
+        cout << "\n\t\t\t0> return";
+        cout << "\n\t\t" + string(70, char(205));
+
+        switch (toupper(inputChar("\n\t\t\tOption: ", static_cast<string>("ABCD0"))))
+        {
+        case '0': return;
+        case 'A':
+        {
+            vector<int> array1 = { 12, 5, 6, 2 };
+            vector<int> array2 = { 12, 9, 6 };
+
+            MaxHeap<int> heap1(array1);
+            MaxHeap<int> heap2(array2);
+
+            if (heap2 < heap1)
+            {
+                MaxHeap<int> heapTemp(array2);
+                MaxHeap<int> merge_max_heap(heap1);
+
+                for (int i = 0; i < heapTemp.getSize(); i++)
+                {
+                    int temp = heapTemp.getFront();
+                    if (heap1.search(temp) == false)
+                    {
+                        merge_max_heap.pushHeap(temp);
+                    }
+                    heapTemp.popHeap();
+                }
+
+                cout << "\n\t\t\tMax heap1: ";
+                heap1.display();
+
+                cout << "\n\t\t\tMax heap2: ";
+                heap2.display();
+
+                cout << "\n\t\t\tMerged max heap: ";
+                merge_max_heap.display();
+            }
+        }
+        break;
+
+        case 'B':
+        {
+            vector<int> array1 = { 12, 5, 6, 2 };
+            vector<int> array2 = { 12, 9, 6 };
+
+            MaxHeap<int> heap1(array1);
+            MaxHeap<int> heap2(array2);
+
+            if (heap2 < heap1)
+            {
+                MaxHeap<int> heapTemp(array2);
+                MaxHeap<int> intersect_heap;
+
+                int size = heapTemp.getSize();
+
+                for (int i = 0; i < size; i++)
+                {
+                    int temp = heapTemp.getFront();
+                    if (heap1.search(temp))
+                    {
+                        intersect_heap.pushHeap(temp);
+                    }
+                    heapTemp.popHeap();
+                }
+
+                cout << "\n\t\t\tMax heap1: ";
+                heap1.display();
+
+                cout << "\n\t\t\tMax heap2: ";
+                heap2.display();
+
+                cout << "\n\t\t\tIntersect max heap: ";
+                intersect_heap.display();
+            }
+        }
+        break;
+
+        case 'C':
+        {
+            vector<int> array1 = { 2 ,5, 6, 12 };
+            vector<int> array2 = { 6, 12, 9 };
+
+            minHeap<int> heap1(array1);
+            minHeap<int> heap2(array2);
+
+            if (heap2 < heap1)
+            {
+                minHeap<int> heapTemp(array2);
+                minHeap<int> merge_min_heap(heap1);
+
+                int size = heapTemp.sizeHeap();
+
+                for (int i = 0; i < size; i++)
+                {
+                    int temp = heapTemp.frontHeap();
+                    if (heap1.search(temp) == false)
+                    {
+                        merge_min_heap.pushMinHeap(temp);
+                    }
+                    heapTemp.popMinHeap();
+                }
+
+                cout << "\n\t\t\tMin heap1: ";
+                heap1.displayHeap();
+
+                cout << "\n\t\t\tMin heap2: ";
+                heap2.displayHeap();
+
+                cout << "\n\t\t\tMerged min heap: ";
+                merge_min_heap.displayHeap();
+            }
+
+        }
+        break;
+
+        case 'D':
+        {
+            vector<int> array1 = { 2 ,5, 6, 12 };
+            vector<int> array2 = { 6, 12, 9 };
+
+            minHeap<int> heap1(array1);
+            minHeap<int> heap2(array2);
+
+            if (heap2 < heap1)
+            {
+                minHeap<int> heapTemp(array2);
+                minHeap<int> intersect_heap;
+
+                int size = heapTemp.sizeHeap();
+
+                for (int i = 0; i < size; i++)
+                {
+                    int temp = heapTemp.frontHeap();
+                    if (heap1.search(temp))
+                    {
+                        intersect_heap.pushMinHeap(temp);
+                    }
+                    heapTemp.popMinHeap();
+                }
+
+                cout << "\n\t\t\tMin heap1: ";
+                heap1.displayHeap();
+
+                cout << "\n\t\t\tMin heap2: ";
+                heap2.displayHeap();
+
+                cout << "\n\t\t\tIntersect min heap: ";
+                intersect_heap.displayHeap();
+            }
+        }
+        break;
+        default: cout << "\n\t\t\tERROR - Invalid option.\n"; break;
+        }
+        cout << "\n";
+        system("pause");
+    } while (true);
+}
+
+//Precondition: NA
+//Postcondition: Display Option 3 menu
+void Option3()
+{
+    Heap<int> temp;
+
+    temp.menu();
 }

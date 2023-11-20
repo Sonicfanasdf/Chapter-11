@@ -17,6 +17,7 @@ public:
 	
 	// Constructor
 	MaxHeap();
+	MaxHeap(const vector<T>& array);
 
 	// Public member functions
 	int getSize();
@@ -25,5 +26,8 @@ public:
 	void popHeap();
 	void pushHeap(T value);
 	void display();
+	bool search(const T& Item);
+
+	bool operator<(MaxHeap<T> obj);
 };
 

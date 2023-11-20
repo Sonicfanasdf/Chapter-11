@@ -8,6 +8,12 @@ MaxHeap<T>::MaxHeap()
 	make_heap(Heap.begin(), Heap.end());
 }
 
+template<class T>
+MaxHeap<T>::MaxHeap(const vector<T>& array) : Heap(array)
+{
+	make_heap(Heap.begin(), Heap.end());
+}
+
 //************************** Public Functions **********************//
 
 //Precondition: NA
@@ -90,4 +96,24 @@ void MaxHeap<T>::display()
 		cout << Heap[i] << " ";
 	}
 	cout << "\n";
+}
+
+template <class T>
+bool MaxHeap<T>::search(const T& Item)
+{
+	for (int i = 0; i < Heap.size(); i++)
+	{
+		if (Heap[i] == Item)
+		{
+			return true;
+		}
+	}
+
+	return false;
+}
+
+template <class T>
+bool MaxHeap<T>::operator<(MaxHeap<T> obj)
+{
+	return Heap.size() < obj.getSize();
 }
