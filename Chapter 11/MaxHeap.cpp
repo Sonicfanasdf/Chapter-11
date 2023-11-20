@@ -46,8 +46,35 @@ void MaxHeap<T>::popHeap()
 //Precondition: NA
 //Postcondition: insert an element to the heap
 template <class T>
-void MaxHeap<T>::pushHeap(const T& value)
+void MaxHeap<T>::pushHeap(T value)
 {
+	bool check = false;
+	T temp;
+
+	do
+	{
+		for (int j = 0; j < Heap.size(); j++)
+		{
+			if (Heap[j] == value)
+			{
+				check = true;
+				temp = Heap[j];
+				break;
+			}
+			else
+			{
+				check = false;
+			}
+		}
+
+		if (check == true)
+		{
+			cout << "\t\t\nERROR: the element, " << temp << ", already existed in the heap.Please re - specify.";
+
+			value = inputInteger("\n\t\t\tEnter an integer element to push onto the heap: ");
+		}
+
+	} while (check == true);
 	Heap.push_back(value);
 	push_heap(Heap.begin(), Heap.end());
 }

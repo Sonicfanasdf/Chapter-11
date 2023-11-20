@@ -6,6 +6,8 @@
 
 using namespace std;
 
+int inputInteger(string prompt);
+
 template <class T>
 class MaxHeap
 {
@@ -21,7 +23,7 @@ public:
 	bool checkEmpty();
 	T getFront();
 	void popHeap();
-	void pushHeap(const T &value);
+	void pushHeap(T value);
 	void display();
 };
 

@@ -216,10 +216,10 @@ void Min_Heap()
             }
         }
         break;
-
+          
         case 3:
         {
-            heap2.pushHeap(inputInteger("\n\t\t\tEnter an integer element to push onto the heap: "));
+            heap2.pushMinHeap(inputInteger("\n\t\t\tEnter an integer element to push onto the heap: "));
         }
         break;
 

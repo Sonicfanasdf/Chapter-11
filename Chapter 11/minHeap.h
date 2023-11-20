@@ -3,6 +3,8 @@
 #include<vector>
 using namespace std;
 
+int inputInteger(string prompt);
+
 template<class Item>
 class minHeap
 {
@@ -12,7 +14,7 @@ public:
 	minHeap();
 	int sizeHeap();
 	bool emptyHeap();
-	void pushHeap(Item entry);
+	void pushMinHeap(Item entry);
 	Item frontHeap();
 	void popMinHeap();
 	void displayHeap();
