@@ -18,7 +18,7 @@
     <ClCompile Include="main.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="minHeap.cpp">
+    <ClCompile Include="MinHeap.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="MaxHeap.cpp">
@@ -32,7 +32,7 @@
     <ClInclude Include="input.h">
       <Filter>Header Files</Filter>
     </ClInclude>
-    <ClInclude Include="minHeap.h">
+    <ClInclude Include="MinHeap.h">
       <Filter>Header Files</Filter>
     </ClInclude>
     <ClInclude Include="MaxHeap.h">

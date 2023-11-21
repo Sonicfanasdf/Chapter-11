@@ -1,7 +1,7 @@
 #include<iostream>
 #include<string>
 #include"input.h"
-#include"minHeap.cpp"
+#include"MinHeap.cpp"
 #include"MaxHeap.cpp"
 #include"Heap.cpp"
 using namespace std;
@@ -14,7 +14,7 @@ void Min_Heap();
 
 int main()
 {
-	minHeap<int> min;
+	MinHeap<int> min;
 	do
 	{
 		cout << "\n\tCMPR131 Chapter 11: Heaps by Joe Bryant (11/20/23)\n";
@@ -57,6 +57,8 @@ int main()
 	return 0;
 }
 
+//Precondition: NA
+//Postcondition: Display Option 1 menu
 void Option1()
 {
     do
@@ -180,9 +182,11 @@ void Max_Heap()
     } while (true);
 }
 
+//Precondition: NA
+//Postcondition: Display Option Min Heap Option
 void Min_Heap()
 {
-    minHeap<int> heap2;
+    MinHeap<int> heap2;
 
     do
     {
@@ -296,7 +300,7 @@ void Option2()
 
         switch (toupper(inputChar("\n\t\t\tOption: ", static_cast<string>("ABCD0"))))
         {
-        case '0': return;
+        case '0': system("cls"); return;
         case 'A':
         {
             vector<int> array1 = { 12, 5, 6, 2 };
@@ -374,13 +378,13 @@ void Option2()
             vector<int> array1 = { 2 ,5, 6, 12 };
             vector<int> array2 = { 6, 12, 9 };
 
-            minHeap<int> heap1(array1);
-            minHeap<int> heap2(array2);
+            MinHeap<int> heap1(array1);
+            MinHeap<int> heap2(array2);
 
             if (heap2 < heap1)
             {
-                minHeap<int> heapTemp(array2);
-                minHeap<int> merge_min_heap(heap1);
+                MinHeap<int> heapTemp(array2);
+                MinHeap<int> merge_min_heap(heap1);
 
                 int size = heapTemp.sizeHeap();
 
@@ -412,13 +416,13 @@ void Option2()
             vector<int> array1 = { 2 ,5, 6, 12 };
             vector<int> array2 = { 6, 12, 9 };
 
-            minHeap<int> heap1(array1);
-            minHeap<int> heap2(array2);
+            MinHeap<int> heap1(array1);
+            MinHeap<int> heap2(array2);
 
             if (heap2 < heap1)
             {
-                minHeap<int> heapTemp(array2);
-                minHeap<int> intersect_heap;
+                MinHeap<int> heapTemp(array2);
+                MinHeap<int> intersect_heap;
 
                 int size = heapTemp.sizeHeap();
 

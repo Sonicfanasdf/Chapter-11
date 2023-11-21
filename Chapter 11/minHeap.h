@@ -6,13 +6,13 @@ using namespace std;
 int inputInteger(string prompt);
 
 template<class Item>
-class minHeap
+class MinHeap
 {
 private:
 	vector<Item> heap;
 public:
-	minHeap();
-	minHeap(const vector<Item>& array);
+	MinHeap();
+	MinHeap(const vector<Item>& array);
 	int sizeHeap();
 	bool emptyHeap();
 	void pushMinHeap(Item entry);
@@ -21,5 +21,5 @@ public:
 	void displayHeap();
 	bool search(const Item& value);
 
-	bool operator<(minHeap<Item> obj);
+	bool operator<(MinHeap<Item> obj);
 };

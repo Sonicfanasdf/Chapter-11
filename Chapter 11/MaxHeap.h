@@ -27,6 +27,8 @@ public:
 	void pushHeap(T value);
 	void display();
 	bool search(const T& Item);
+	void sort();
+	bool isHeap(const vector<T>& array);
 
 	bool operator<(MaxHeap<T> obj);
 };
